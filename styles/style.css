@@ -17,7 +17,7 @@
 .page {
   min-inline-size: 375px;
   min-block-size: 100dvb;
-  font-family: var(--main-font-family), Arial, sans-serif;
+  font-family: var(--main-font-family), sans-serif;
   font-size: 1.125rem;
   font-variation-settings: 'wght' var(--text-font-weight, 400);
   line-height: 1.3125rem;
@@ -28,18 +28,24 @@
   background-attachment: fixed;
 }
 
+@supports (font-variation-settings: normal) {
+  .page {
+    font-family: var(--main-font-family), sans-serif;
+  }
+}
+
 .button {
   border: 0.125rem solid var(--accent-color, #000);
-  font-family: var(--accent-font-family), Arial, sans-serif;
+  font-family: var(--accent-font-family), sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 0.875rem;
   color: var(--button-text-color, #fff);
   position: relative;
-  transition: box-shadow .3s ease;
   overflow: hidden;
   cursor: pointer;
   appearance: none;
+  transition: box-shadow .3s ease;
 }
 
 .button__text {
@@ -47,8 +53,8 @@
 }
 
 .header {
-  margin: 100px auto;
-  max-inline-size: 700px;
+  margin: 6.25rem auto;
+  max-inline-size: 43.75rem;
   border: 0.125rem solid var(--accent-color, #000);
   background-color: var(--background-color, #fff);
 }
@@ -57,7 +63,7 @@
   margin-block-end: 1.25rem;
   padding-block-start: 8.5rem;
   display: block;
-  font-family: var(--accent-font-family), Arial, sans-serif;
+  font-family: var(--accent-font-family), sans-serif;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   font-weight: 400;
   line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
@@ -69,7 +75,7 @@
 .header__title {
   margin-block-end: 1.5625rem;
   text-transform: uppercase;
-  font-family: var(--accent-font-family), Arial, sans-serif;
+  font-family: var(--accent-font-family), sans-serif;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-weight: 400;
   line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
@@ -78,7 +84,7 @@
 
 .header__theme-menu {
   margin: 0 auto 1.5625rem;
-  padding-left: 1.25rem;
+  padding-inline-start: 1.25rem;
   inline-size: min-content;
 }
 
@@ -94,14 +100,14 @@
 }
 
 .theme-menu__button {
-  font-family: var(--accent-font-family), Arial, sans-serif;
+  font-family: var(--accent-font-family), sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 0.875rem;
   text-transform: uppercase;
   position: relative;
-  /* transition: opacity .3s ease; */
   cursor: pointer;
+  transition: opacity .3s ease;
 }
 
 .main {
@@ -135,6 +141,23 @@
   aspect-ratio: 1 / 1;
 }
 
+.card__gallery-text {
+  position: absolute;
+  inset-block-start: 1.5rem;
+  inset-inline-end: 1.5625rem;
+  font-family: var(--accent-font-family), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 0.875rem;
+  text-shadow:
+    -0.0625rem 0 var(--background-color, #fff),
+    0 .0625rem var(--background-color, #fff),
+    .0625rem 0 var(--background-color, #fff),
+    0 -0.0625rem var(--background-color, #fff);
+  mix-blend-mode: hard-light;
+  opacity: .5;
+}
+
 .card__description {
   padding: 1.5625rem;
   border-block-start: 0.125rem solid var(--accent-color, #000);
@@ -148,7 +171,7 @@
   display: flex;
   align-items: center;
   column-gap: 0.25rem;
-  margin-left: auto;
+  margin-inline-start: auto;
   padding-block-start: 1.5625rem;
   width: min-content;
 }
