@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,6 +17,7 @@
     <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
     <script src="./scripts/set-theme.js"></script>
   </head>
+
   <body class="page">
     <header class="header">
       <a class="header__link" href="#">&lt;/HTML&gt;</a>
@@ -46,21 +48,43 @@
         </ul>
       </nav>
     </header>
-    <main>
+
+    <main class="main">
       <article class="card">
         <h2 class="card__title">
           Фритрек и нулевой спринт: Подготовка к работе
         </h2>
-        <picture>
-        </picture>
-        <p class="card__description">
-          Это было самое начало пути. На этом этапе важно было проникнуться основами и настроиться на учёбу. И, возможно, подумать, как новые знания могут повлиять на ваше будущее.
-        </p>
-        <p class="card__description">
-          Место для ваших воспоминаний о начале обучения.
-        </p>
-        <div></div>
-        <button class="card__button">Like</button>
+        <figure class="card__gallery">
+          <picture>
+            <source srcset="./images/car.avif" type="image/avif">
+          <source srcset="./images/car.webp" type="image/webp">
+          <img class="card__gallery-image" src="./images/car.png" loading="lazy"
+           alt="Автомобиль">
+          </picture>
+          <figcaption class="card__gallery-text">
+            &lt;/HTML&gt;
+          </figcaption>
+        </figure>
+        <div class="card__description">
+          <p>
+            Это было самое начало пути. На этом этапе важно было проникнуться основами и настроиться на учёбу. И, возможно, подумать, как новые знания могут повлиять на ваше будущее.
+          </p>
+          <p>
+            Место для ваших воспоминаний о начале обучения.
+          </p>
+          <div class="card__buttons">
+            <button class="card__icon-button" type="button" aria-label="Редактировать">
+              <svg viewBox="0 0 39 36">
+                <use xlink:href="#heart" class="like-icon"></use>
+              </svg>
+            </button>
+            <button class="button card__like-button" type="button">
+              <span class="button__text">
+                Like
+              </span>
+            </button>
+          </div>
+        </div>
       </article>
     </main>
     <script src="./scripts/like.js"></script>
