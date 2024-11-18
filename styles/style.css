@@ -158,6 +158,37 @@
   opacity: .5;
 }
 
+.filter-sepia {
+  filter: sepia(80%);
+}
+
+.filter-saturate {
+  filter: saturate(200%);
+}
+
+.filter-double {
+  filter: hue-rotate(-90deg) brightness(80%);
+}
+
+.filter-invert {
+  filter: invert(.8);
+}
+
+.filter-grayscale {
+  filter: grayscale(.9);
+}
+
+.filter-blur {
+  filter: blur(15px);
+}
+
+.filter-contrast {
+  filter: contrast(60%);
+}
+
+
+
+
 .card__description {
   padding: 1.5625rem;
   border-block-start: 0.125rem solid var(--accent-color, #000);
