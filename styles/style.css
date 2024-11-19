@@ -17,7 +17,7 @@
 .page {
   min-inline-size: 375px;
   min-block-size: 100dvb;
-  font-family: var(--main-font-family), sans-serif;
+  font-family: var(--main-font-family), Arial, sans-serif;
   font-size: 1.125rem;
   font-variation-settings: 'wght' var(--text-font-weight, 400);
   line-height: 1.3125rem;
@@ -30,13 +30,13 @@
 
 @supports (font-variation-settings: normal) {
   .page {
-    font-family: var(--main-font-family), sans-serif;
+    font-family: var(--main-font-family), Arial, sans-serif;
   }
 }
 
 .button {
   border: 0.125rem solid var(--accent-color, #000);
-  font-family: var(--accent-font-family), sans-serif;
+  font-family: var(--accent-font-family), Arial, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 0.875rem;
@@ -46,6 +46,23 @@
   cursor: pointer;
   appearance: none;
   transition: box-shadow .3s ease;
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.button:focus {
+  box-shadow: .125rem .125rem 0 var(--accent-color, #000);
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-color, #000);
+  transform: translateX(-100%);
+  transition: transform .5s ease-in-out;
 }
 
 .button__text {
@@ -63,7 +80,7 @@
   margin-block-end: 1.25rem;
   padding-block-start: 8.5rem;
   display: block;
-  font-family: var(--accent-font-family), sans-serif;
+  font-family: var(--accent-font-family), Arial, sans-serif;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   font-weight: 400;
   line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
@@ -75,7 +92,7 @@
 .header__title {
   margin-block-end: 1.5625rem;
   text-transform: uppercase;
-  font-family: var(--accent-font-family), sans-serif;
+  font-family: var(--accent-font-family), Arial, sans-serif;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-weight: 400;
   line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
@@ -100,7 +117,7 @@
 }
 
 .theme-menu__button {
-  font-family: var(--accent-font-family), sans-serif;
+  font-family: var(--accent-font-family), Arial, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 0.875rem;
@@ -108,6 +125,43 @@
   position: relative;
   cursor: pointer;
   transition: opacity .3s ease;
+}
+
+.theme-menu__button:hover {
+  opacity: .6;
+}
+
+.theme-menu__button:focus {
+  opacity: .6;
+}
+
+.theme-menu__button:focus-visible::after {
+  inline-size: 100%;
+}
+
+.theme-menu__button:disabled {
+  opacity: .6;
+  pointer-events: none;
+}
+
+.theme-menu__button::after {
+  content: '';
+  position: absolute;
+  inset-block-end: -0.125rem;
+
+  display: block;
+  inline-size: 0;
+  block-size: 0.125rem;
+
+  background-color: var(--accent-color, #000);
+  transition: width .3s ease-in-out;
+}
+
+.theme-menu__button:disabled::before {
+  content: '\25B6';
+  position: absolute;
+  inset-inline-start: -1.25rem;
+  animation: pointer-shift .5s ease-in-out infinite alternate;
 }
 
 .main {
@@ -145,7 +199,7 @@
   position: absolute;
   inset-block-start: 1.5rem;
   inset-inline-end: 1.5625rem;
-  font-family: var(--accent-font-family), sans-serif;
+  font-family: var(--accent-font-family), Arial, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 0.875rem;
@@ -175,19 +229,24 @@
 }
 
 .filter-grayscale {
-  filter: grayscale(.9);
+  filter: grayscale(1);
 }
 
 .filter-blur {
-  filter: blur(15px);
+  filter: blur(10px);
 }
 
 .filter-contrast {
   filter: contrast(60%);
 }
 
-
-
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+  .content__figure-caption {
+    text-stroke: .0625rem var(--background-color, #fff);
+    -webkit-text-stroke: .0625rem var(--background-color, #fff);
+    text-shadow: none;
+  }
+}
 
 .card__description {
   padding: 1.5625rem;
@@ -204,7 +263,7 @@
   column-gap: 0.25rem;
   margin-inline-start: auto;
   padding-block-start: 1.5625rem;
-  width: min-content;
+  inline-size: min-content;
 }
 
 .card__icon-button {
@@ -216,6 +275,11 @@
   block-size: 2.375rem;
 }
 
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color, #000);
+  transition: border-color .3s ease;
+}
+
 .card__like-button {
   padding: 0.625rem 1.0625rem;
   inline-size: 8.125rem;
@@ -224,6 +288,86 @@
 
 .like-icon {
   display: block;
+  inline-size: 2.4375rem;
+  block-size: 2.25rem;
+}
+
+.memory-button {
+  margin: 0 auto;
+  padding: 0.9375rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color, #fff);
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.memory-icon {
+  inline-size: 1.3125rem;
+  block-size: 1.3125rem;
+  mix-blend-mode: difference;
+}
+
+.modal {
+  padding: 1.875rem;
+  inline-size: 22.125rem;
+  border: .125rem solid var(--accent-color, #000);
+  background-color: var(--background-color, #fff);
+  color: var(--accent-color, #000);
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, .75);
+}
+
+.modal-content {
+  margin-block-end: 1.875rem;
+
+  display: flex;
+  align-items: center;
+  column-gap: 1.25rem;
+
+  font-family: var(--accent-font-family), Arial, sans-serif;
+  font-size: .875rem;
+  text-transform: uppercase;
+}
+
+.modal-icon {
   width: 39px;
-  height: 36px;
+  height: 39px;
+  flex: 1 0 auto;
+}
+
+.modal-button {
+  padding: .6875rem 1.0625rem;
+  inline-size: 100%;
+  block-size: 2.375rem;
+  background-color: var(--background-color, #fff);
+}
+
+@media (max-width: 375px) {
+  .header__link {
+    padding-block-start: 7.5rem;
+  }
+
+  .card__gallery-text {
+    inset-inline-end: 0.6875rem;
+  }
+
+  .memory-button {
+    padding: 0.9375rem 1.25rem;
+    inline-size: 19.375rem;
+  }
+
+  .modal {
+    padding: 1.875rem 2.5rem;
+    min-inline-size: 21.3125rem;
+  }
+
+  .memory-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
 }
