@@ -18,9 +18,9 @@
   min-inline-size: 375px;
   min-block-size: 100dvb;
   font-family: var(--main-font-family), Arial, sans-serif;
-  font-size: 1.125rem;
+  font-size: 18px;
   font-variation-settings: 'wght' var(--text-font-weight, 400);
-  line-height: 1.3125rem;
+  line-height: 21px;
   color: var(--accent-color, #000);
   background-color: var(--background-color, #fff);
   background-image: var(--background-image);
@@ -125,6 +125,9 @@
   position: relative;
   cursor: pointer;
   transition: opacity .3s ease;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
 
 .theme-menu__button:hover {
@@ -249,7 +252,7 @@
 }
 
 .card__description {
-  padding: 1.5625rem;
+  padding: 25px 23px;
   border-block-start: 0.125rem solid var(--accent-color, #000);
 }
 
@@ -273,6 +276,7 @@
   border: 0.125rem solid transparent;
   inline-size: 2.6875rem;
   block-size: 2.375rem;
+  background-color: var(--background-color, #fff);
 }
 
 .card__icon-button:focus-visible {
@@ -347,7 +351,7 @@
   background-color: var(--background-color, #fff);
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .header__link {
     padding-block-start: 7.5rem;
   }
