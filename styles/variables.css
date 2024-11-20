@@ -15,5 +15,5 @@
 
     --button-text-color: var(--background-color, #fff);
     --contour-color: var(--accent-color);
-    --filling-color: var(--accent-color);
+    --filling-color: red;
 }
