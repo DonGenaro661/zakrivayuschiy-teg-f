@@ -41,13 +41,6 @@ input {
   font-size: inherit;
 }
 
-.button {
-  padding: 0;
-  border: none;
-  background-color: transparent;
-}
-
-
 button:focus {
   outline: none;
 }
